@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be Mine?</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffebee;
+            padding: 50px;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Background Slideshow */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            animation: fadeIn 16s infinite;
+        }
+
+        /* Pseudo-elements for smooth transition */
+        .background::before, .background::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            animation: bgSlideshow 16s infinite;
+        }
+
+        /* Background Image Slideshow */
+        @keyframes bgSlideshow {
+        
+            0% { background-image: url('https://scontent.fbbi5-3.fna.fbcdn.net/v/t1.6435-9/93142693_2950254811723663_5526500927055331328_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=fVPxHSrMOpcQ7kNvgF85M3o&_nc_oc=AdhFDaADMuneEDM6n4TnYZVb1L_AndtuEXJFYiEkrDJoM_6uH_7EmBkeVNgYN0URcweymy2SFH7w5G7N2OrUrR8f&_nc_zt=23&_nc_ht=scontent.fbbi5-3.fna&_nc_gid=AruW5x884kQl05V8b68S4Fh&oh=00_AYC1b57uJ2Mk-u2OTvUr3REJg8h-wR7mQf7ehsOf-Vjwhw&oe=67E10E50'); }
+            25% { background-image: url('https://scontent.fbbi5-1.fna.fbcdn.net/v/t1.6435-9/34795317_1756916034390886_6125336079559032832_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=Xx2vlVAPli8Q7kNvgG30tUB&_nc_oc=AdgpbZ4uzFGKgu8vYPfzHEXCM5K7bnrupG31mSYPCVoKR45DdRH3qggZGc__7_o3cTyQNKObnndQmLgT5CACiDMU&_nc_zt=23&_nc_ht=scontent.fbbi5-1.fna&_nc_gid=ADuVbxDM8Tf-7q6yUwGM_s-&oh=00_AYBgwnGdZDYTevrdf5cVeDfUDDGMcXRisj8fa-LGKBTw5w&oe=67E0FDB8'); }
+            50% { background-image: url('https://scontent.fbbi5-2.fna.fbcdn.net/v/t1.6435-9/186530596_4117512321664567_3951817565918272845_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=5BCKpgxyD78Q7kNvgFPB3Fm&_nc_oc=AdhUGVlpU16btKfEAiHc0KzWs9YGS_4ybA-v4aZDWHn-UtSu8SyEXoMeGVKdzAagBsmycXBHZFJ97YAD2no4TDU_&_nc_zt=23&_nc_ht=scontent.fbbi5-2.fna&_nc_gid=ASE6u9ZnCo53alBsFng8dhW&oh=00_AYDu79NDhJ7AXarCCsTPkQfPL4dFKTJBN1SwrfWtlXYnWQ&oe=67E11B5B'); }
+            75% { background-image: url('https://scontent.fbbi5-2.fna.fbcdn.net/v/t39.30808-6/293013001_5357986234283830_3841231090397435878_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=MvF6_SHOvbMQ7kNvgG4dijl&_nc_oc=Adgo4nBMP1_9yKKdjAocZ-sGOBXfJji7TaHB9xSQfqUJgRz4vbg7Z1nOUV6-xWFHuf99Rx2ATfe-Jqhj7faSADMz&_nc_zt=23&_nc_ht=scontent.fbbi5-2.fna&_nc_gid=A_JrDtLIYm-y19hfeqzPGse&oh=00_AYA9eHRbg9YeJ2-0L4r5qA-4-lxN_3ZgjqXrr7s60LlNfA&oe=67BF80C5'); }
+            100% { background-image: url('https://scontent.fbbi5-1.fna.fbcdn.net/v/t39.30808-6/463368752_8614492318633189_3156443707567368635_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=zhCaMCIB9MgQ7kNvgHfAU0-&_nc_oc=AdiDgHzTGh1NH-sxe5NP87wVGRD8Qkk7nsNzqjDG0waALxEMXPnK_frLB_L6hUqkrp92CJJeaz6uxFsMzK3rUHg9&_nc_zt=23&_nc_ht=scontent.fbbi5-1.fna&_nc_gid=AR3yMTCdTgFKeaHSPgCYsci&oh=00_AYCI-eWHskDngrH8pV-IjiC18q57vEJ0GmcN2TICr2NbaA&oe=67BF7309'); }
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            background: transparent; /* Fully invisible */
+            color: white; /* Text remains visible */
+            text-shadow: 2px 2px 5px black; /* Improve readability */
+        }
+
+        /* Buttons */
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .yes-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no-btn {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <h1>Hey, I have a question for you... ❤️</h1>
+        <p>Will you be mine forever? 🥰</p>
+        <div class="buttons">
+            <button class="yes-btn" onclick="yesClicked()">Yes</button>
+            <button class="no-btn" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function yesClicked() {
+            document.body.innerHTML = '<h1 style="color: #e91e63;">Yay! ❤️ You made me the happiest person! 🎉</h1>';
+        }
+        function moveButton() {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            document.querySelector(".no-btn").style.left = `${x}px`;
+            document.querySelector(".no-btn").style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
